@@ -166,7 +166,7 @@ median(StepsPerDayImputed)
 ```
 ## [1] 10766.19
 ```
-They are almost equal to the mean and median of our original dataset.
+They are a bit higher than mean and median of our original dataset.
 
 ## Are there differences in activity patterns between weekdays and weekends?
 

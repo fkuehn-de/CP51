@@ -107,7 +107,7 @@ This looks very similar to the histogram, which we obtained for original data. T
 mean(StepsPerDayImputed)
 median(StepsPerDayImputed)
 ```
-They are almost equal to the mean and median of our original dataset.
+They are a bit higher than mean and median of our original dataset.
 
 ## Are there differences in activity patterns between weekdays and weekends?
 
