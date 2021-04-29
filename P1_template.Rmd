@@ -1,7 +1,7 @@
 ---
 title: "Course Project 1 - Documentation"
 author: "FK"
-date: "29 4 2021"
+keep_md: true
 output: html_document
 ---
 
