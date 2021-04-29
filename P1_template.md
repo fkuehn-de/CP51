@@ -88,7 +88,7 @@ To study the daily activity pattern, we make a time series plot of the 5-minute 
 ```r
 StepsPerInterval <- aggregate(list(mean=data[,1]),list(interval=data$interval),mean,na.rm=TRUE)
 
-plot(StepsPerInterval, type="l",ylab="mean total number of steps",xlab="time of the day (in minutes)")
+plot(StepsPerInterval, type="l",ylab="mean total number of steps",xlab="time of the day (format hhmm)")
 ```
 
 ![](P1_template_files/figure-html/unnamed-chunk-5-1.png)<!-- -->
