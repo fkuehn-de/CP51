@@ -38,13 +38,13 @@ data[,2] <- ymd(data[,2]) #dates come in the format year-month-day
 
 ## What is mean total number of steps taken per day?
 
-The mean total number of steps taken per day is calculated using tapply (factor variable: date). We ignore the NA's, for the moment being. Plot the data using base plot system.
+The total number of steps taken per day is calculated using tapply (factor variable: date). We ignore the NA's, for the moment being. Plot the data using base plot system.
 
 
 ```r
-StepsPerDay <- tapply(data[,1],data$date,mean,na.rm=TRUE)
+StepsPerDay <- tapply(data[,1],data$date,sum,na.rm=TRUE)
 
-hist(StepsPerDay, xlab="average steps per day",main="", ylim=c(0,20))
+hist(StepsPerDay, xlab="total steps per day",main="", ylim=c(0,35))
 ```
 
 ![](P1_template_files/figure-html/unnamed-chunk-2-1.png)<!-- -->
@@ -57,8 +57,8 @@ summary(StepsPerDay)
 ```
 
 ```
-##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-##  0.1424 30.6979 37.3785 37.3826 46.1597 73.5903       8
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##       0    6778   10395    9354   12811   21194
 ```
 
 ... or using the corresponding built-in commands (we need to take care of the 'NA's!)
@@ -69,7 +69,7 @@ median(StepsPerDay, na.rm = TRUE)
 ```
 
 ```
-## [1] 37.37847
+## [1] 10395
 ```
 
 ```r
@@ -77,7 +77,7 @@ mean(StepsPerDay, na.rm = TRUE)
 ```
 
 ```
-## [1] 37.3826
+## [1] 9354.23
 ```
 
 ## What is the average daily activity pattern?
@@ -141,14 +141,14 @@ To compare the imputed data with the original one, we first make a histogram
 
 
 ```r
-StepsPerDayImputed <- tapply(imputedData[,1],imputedData$date,mean,na.rm=TRUE)
+StepsPerDayImputed <- tapply(imputedData[,1],imputedData$date,sum,na.rm=TRUE)
 
-hist(StepsPerDayImputed, xlab="average steps per day",main="", ylim=c(0,30))
+hist(StepsPerDayImputed, xlab="total steps per day",main="", ylim=c(0,35))
 ```
 
 ![](P1_template_files/figure-html/unnamed-chunk-9-1.png)<!-- -->
 
-It looks a bit different but overall the shape is the same. To get a better feeling, we compute mean and median of the new dataset:
+This looks very similar to the histogram, which we obtained for original data. To get a better feeling, we compute mean and median of the new dataset:
 
 
 ```r
@@ -156,7 +156,7 @@ mean(StepsPerDayImputed)
 ```
 
 ```
-## [1] 37.3826
+## [1] 10766.19
 ```
 
 ```r
@@ -164,7 +164,7 @@ median(StepsPerDayImputed)
 ```
 
 ```
-## [1] 37.3826
+## [1] 10766.19
 ```
 They are almost equal to the mean and median of our original dataset.
 

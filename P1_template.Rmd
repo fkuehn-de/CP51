@@ -35,12 +35,12 @@ data[,2] <- ymd(data[,2]) #dates come in the format year-month-day
 
 ## What is mean total number of steps taken per day?
 
-The mean total number of steps taken per day is calculated using tapply (factor variable: date). We ignore the NA's, for the moment being. Plot the data using base plot system.
+The total number of steps taken per day is calculated using tapply (factor variable: date). We ignore the NA's, for the moment being. Plot the data using base plot system.
 
 ```{r, fig.height=4}
-StepsPerDay <- tapply(data[,1],data$date,mean,na.rm=TRUE)
+StepsPerDay <- tapply(data[,1],data$date,sum,na.rm=TRUE)
 
-hist(StepsPerDay, xlab="average steps per day",main="", ylim=c(0,20))
+hist(StepsPerDay, xlab="total steps per day",main="", ylim=c(0,35))
 ```
 
 The median and the mean can be either obtained from the summary
@@ -96,12 +96,12 @@ imputedData[is.na(data[,1]),1] <- sapply(dataNA[,3],function(interval){StepsPerI
 To compare the imputed data with the original one, we first make a histogram
 
 ```{r, fig.height=4}
-StepsPerDayImputed <- tapply(imputedData[,1],imputedData$date,mean,na.rm=TRUE)
+StepsPerDayImputed <- tapply(imputedData[,1],imputedData$date,sum,na.rm=TRUE)
 
-hist(StepsPerDayImputed, xlab="average steps per day",main="", ylim=c(0,30))
+hist(StepsPerDayImputed, xlab="total steps per day",main="", ylim=c(0,35))
 ```
 
-It looks a bit different but overall the shape is the same. To get a better feeling, we compute mean and median of the new dataset:
+This looks very similar to the histogram, which we obtained for original data. To get a better feeling, we compute mean and median of the new dataset:
 
 ```{r}
 mean(StepsPerDayImputed)
