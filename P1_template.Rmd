@@ -127,4 +127,4 @@ stepsPerIntervalandTypeOfDay <- aggregate(list(steps=imputedData[,1]),list(inter
 ggplot(stepsPerIntervalandTypeOfDay,aes(x=interval,y=steps))+geom_line(aes(color=type))
 ```
 
-So we see that for the weekdays the activity is higher in the morning and evening, while at the weekend days the activity is higher during lich time/afternoon.
+So we see that for the weekdays the activity is higher in the morning and evening, while at the weekend days the activity is higher during lunch time/afternoon.
